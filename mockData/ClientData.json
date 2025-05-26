@@ -1,0 +1,40 @@
+{
+  "clientData": [
+    {
+      "id": 1,
+      "naziv": "boki",
+      "adresa": "okiceva",
+      "email": "boki@gmail.com",
+      "kontaktOsoba": "pero"
+    },
+
+    {
+      "id": 2,
+      "naziv": "niki",
+      "adresa": "nikina ulica",
+      "email": "bnn@gmail.com",
+      "kontaktOsoba": "marax"
+    },
+    {
+      "id": 3,
+      "naziv": "mara",
+      "adresa": "fvsdv",
+      "email": "bnn@gmail.com",
+      "kontaktOsoba": "reka"
+    },
+    {
+      "id": 4,
+      "naziv": "pero",
+      "adresa": "niakak",
+      "email": "bnn@gmail.com",
+      "kontaktOsoba": "seka"
+    },
+    {
+      "id": 5,
+      "naziv": "nikolinq",
+      "adresa": "ubbooo",
+      "email": "bnn@gmail.com",
+      "kontaktOsoba": "rika"
+    }
+  ]
+}
