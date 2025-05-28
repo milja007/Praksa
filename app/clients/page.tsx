@@ -11,7 +11,7 @@ interface ClientDataItem {
   kontaktOsoba: string;
 }
 
-const clientDatas: ClientDataItem[] =
+const allClientDatas: ClientDataItem[] =
   clientDataFile.clientData as ClientDataItem[];
 const ClientsPage = () => {
   const [displayedClients, setDisplayedClients] =
