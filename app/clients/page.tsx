@@ -35,7 +35,7 @@ const ClientsPage = () => {
   };
   return (
     <div className="flex flex-col items-center">
-      {clientDatas.map((client) => (
+      {allClientDatas.map((client) => (
         <Link
           href={`/clients/client-${client.id}`}
           key={client.id}
