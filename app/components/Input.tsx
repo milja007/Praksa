@@ -17,17 +17,15 @@ const Input = ({ onSearch }: InputProps) => {
   }
   return (
     <div className="my-4">
-      {" "}
-      {/* Added some margin for spacing */}
       <input
         type="text"
         name="search"
         placeholder="Find your client by name (naziv)"
         ref={myRef}
-        className="border p-2 rounded-l" // Added some basic styling
+        className="border p-2 rounded-l"
       />
       <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r" // Changed styling
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r"
         onClick={handleSearch}
       >
         Search

@@ -1,3 +1,4 @@
+"use client";
 import clientDataFile from "@/mockData/ClientData.json";
 import Link from "next/link";
 import Input from "@/app/components/Input";
@@ -13,46 +14,49 @@ interface ClientDataItem {
 
 const allClientDatas: ClientDataItem[] =
   clientDataFile.clientData as ClientDataItem[];
+
 const ClientsPage = () => {
   const [displayedClients, setDisplayedClients] =
     useState<ClientDataItem[]>(allClientDatas);
 
-  // Function to handle the search logic, will be passed to the Input component
   const handleClientSearch = (searchTerm: string) => {
     const lowercasedSearchTerm = searchTerm.toLowerCase().trim();
 
     if (!lowercasedSearchTerm) {
-      // If the search term is empty, show all clients
-      setDisplayedClients(allClientDatas);
+      setDisplayedClients(allClientDatas); // Ako je pretraga prazna, prikaži sve
       return;
     }
 
-    // Filter the original list of clients
     const filtered = allClientDatas.filter((client) =>
       client.naziv.toLowerCase().includes(lowercasedSearchTerm)
     );
-    setDisplayedClients(filtered);
+    setDisplayedClients(filtered); // Ažuriraj prikazane klijente s filtriranima
   };
+
   return (
-    <div className="flex flex-col items-center">
-      {allClientDatas.map((client) => (
+    <div className="flex flex-col items-center p-4">
+      <h1 className="text-2xl font-bold mb-4">Naši Klijenti</h1>{" "}
+      <Input onSearch={handleClientSearch} />{" "}
+      {displayedClients.length === 0 && (
+        <p className="my-4">Nema klijenata koji odgovaraju pretrazi.</p>
+      )}
+      {displayedClients.map((client) => (
         <Link
           href={`/clients/client-${client.id}`}
           key={client.id}
-          className="text-blue-500 font-bold border border-red-500  "
+          className="text-blue-600 hover:text-blue-800 font-semibold border border-gray-300 my-2 p-4 w-full max-w-lg text-left hover:bg-gray-50 rounded-lg shadow-sm" // Poboljšan stil
         >
-          naziv:{client.naziv}
-          <br /> adresa:{client.adresa} <br /> email:{client.email} <br />
-          kontakt osoba:{client.kontaktOsoba}
+          <div className="font-bold text-lg">Naziv: {client.naziv}</div>
+          <div>Adresa: {client.adresa}</div>
+          <div>Email: {client.email}</div>
+          <div>Kontakt osoba: {client.kontaktOsoba}</div>
         </Link>
       ))}
-      <Input onSearch={handleClientSearch} />
     </div>
   );
 };
 
 export default ClientsPage;
-
 // "use client"; // This component now needs to be a client component
 
 // import React, { useState } from "react"; // Import useState
