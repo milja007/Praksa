@@ -1,7 +1,7 @@
 "use client";
 import clientDataFile from "@/mockData/ClientData.json";
 import Link from "next/link";
-import Input from "@/app/components/Input";
+import Input from "@/components/Input";
 import { useState } from "react";
 
 interface ClientDataItem {
