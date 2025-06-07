@@ -1,12 +1,46 @@
+/**
+ * @file Input.tsx
+ * @description Generička input komponenta s pretraživanjem. Koristi se za pretraživanje klijenata po nazivu.
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <Input onSearch={(term) => console.log(term)} />
+ * ```
+ */
+
 "use client";
 
 import React, { useRef } from "react";
+
+/**
+ * Props za Input komponentu
+ * @interface InputProps
+ * @property {function} onSearch - Callback funkcija koja se poziva kada korisnik pretražuje
+ */
 interface InputProps {
   onSearch: (searchTerm: string) => void;
 }
+
+/**
+ * Input komponenta za pretraživanje
+ *
+ * @param {InputProps} props - Props za komponentu
+ * @returns {JSX.Element} Input komponenta s gumbom za pretraživanje
+ *
+ * @features
+ * - Pretraživanje u realnom vremenu
+ * - Responzivni dizajn
+ * - Tailwind CSS stiliziranje
+ * - Pristupačnost
+ */
 const Input = ({ onSearch }: InputProps) => {
   const myRef = useRef<HTMLInputElement>(null);
 
+  /**
+   * Handler za pretraživanje
+   * @param {React.MouseEvent<HTMLButtonElement>} e - Event objekat
+   */
   function handleSearch(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
 
